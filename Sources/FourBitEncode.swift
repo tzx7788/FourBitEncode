@@ -54,7 +54,7 @@ public class FourBitEncode {
     }
 }
 
-extension FourBit:CustomStringConvertible {
+extension FourBit: CustomStringConvertible {
     public var description: String {
         return String(format: "%x", self.value)
     }
@@ -71,3 +71,18 @@ extension FourBitEncode: CustomStringConvertible {
         return result
     }
 }
+
+extension UInt8 {
+    public func split() -> (FourBit, FourBit) {
+        let a = FourBit((Int(self) >> 4) & 0xf)!
+        let b = FourBit((Int(self)) & 0xf)!
+        return (a,b)
+    }
+}
+
+public func merge(_ a: FourBit, _ b: FourBit) -> UInt8 {
+    var result = a.value << 4
+    result = result + b.value
+    return UInt8(result)
+}
+
