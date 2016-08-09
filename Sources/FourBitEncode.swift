@@ -48,10 +48,15 @@ public class FourBitEncode {
         }
     }
     
-    public func encode(data: FourBit) -> FourBit {
-        return FourBit(0)
+    public func encode(data: FourBit) -> FourBit! {
+        return self.data[data]
     }
-    public func decode(data: FourBit) -> FourBit {
+    public func decode(data: FourBit) -> FourBit! {
+        for (key, value) in self.data {
+            if value == data {
+                return key
+            }
+        }
         return FourBit(0)
     }
 }
