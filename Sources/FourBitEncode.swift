@@ -30,6 +30,8 @@ public class FourBitEncode {
         return dict
     }()
     
+    public init(){}
+    
     public func rand(times: Int = 100) {
         for _ in 0..<times {
             let index1 = FourBit(Int(arc4random()) % 0x10)!
