@@ -32,7 +32,7 @@ public class FourBitEncode {
     
     public init(){}
     
-    public func rand(times: Int = 100) {
+    public func rand(_ times: Int = 100) {
         for _ in 0..<times {
             let index1 = FourBit(Int(arc4random()) % 0x10)!
             let index2 = FourBit(Int(arc4random()) % 0x10)!
@@ -48,10 +48,10 @@ public class FourBitEncode {
         }
     }
     
-    public func encode(data: FourBit) -> FourBit! {
+    public func encode(_ data: FourBit) -> FourBit! {
         return self.data[data]
     }
-    public func decode(data: FourBit) -> FourBit! {
+    public func decode(_ data: FourBit) -> FourBit! {
         for (key, value) in self.data {
             if value == data {
                 return key
