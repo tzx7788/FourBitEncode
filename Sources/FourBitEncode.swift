@@ -22,7 +22,7 @@ public func ==(lhs: FourBit, rhs: FourBit) -> Bool {
 
 public class FourBitEncode {
     
-    private var data: [FourBit: FourBit] = {
+    var data: [FourBit: FourBit] = {
         var dict = [FourBit: FourBit]()
         for a in 0..<0x10 {
             dict[FourBit(a)] = FourBit(a)
